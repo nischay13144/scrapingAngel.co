@@ -17,10 +17,14 @@ driver.get("https://angel.co/companies")
 WebDriverWait(driver, 100).until( lambda driver: driver.find_elements_by_xpath('//*[@id="root"]/div[4]/div[2]/div/div[2]/div[2]/div[2]'))
 
 
+for num in range(2,20):
+    driver.find_element_by_xpath('//*[@id="root"]/div[4]/div[2]/div/div[2]/div[2]/div[2]/div['+ str(num) +']/div/div[1]/div/div[2]/div[1]/a').click()
 
-driver.find_element_by_xpath('//*[@id="root"]/div[4]/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[1]/div/div[2]/div[1]/a').click()
-
-titles_element = driver.find_elements_by_xpath("//*[@class='larger roles']")
-titles = [x.text for x in titles_element]
-print(titles[0])
-print('\n')
+    titles_element = driver.find_elements_by_xpath("//*[@class='larger roles']")
+    titles = [x.text for x in titles_element]
+    if titles[0]:
+        print(titles[0])
+        print('\n')
+    driver.find_element_by_xpath('//*[@id="root"]/div[2]/div/div/div[1]/div[2]/div/li[4]/a').click()
+    driver.find_element_by_xpath('//*[@id="root"]/div[2]/div/div/div[1]/div[2]/div/li[4]/div/div/div[3]/a[1]').click()
+    WebDriverWait(driver, 100).until( lambda driver: driver.find_elements_by_xpath('//*[@id="root"]/div[4]/div[2]/div/div[2]/div[2]/div[2]'))
