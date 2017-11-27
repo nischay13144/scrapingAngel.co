@@ -19,7 +19,8 @@ WebDriverWait(driver, 100).until( lambda driver: driver.find_elements_by_xpath('
 
 
 driver.find_element_by_xpath('//*[@id="root"]/div[4]/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div[1]/div/div[2]/div[1]/a').click()
-titles_element = driver.find_elements_by_xpath('//*[@id="root"]/div[4]/div/div[2]/div/div[2]/div[1]/div/div[2]/div/div/ul')
+
+titles_element = driver.find_elements_by_xpath("//*[@class='larger roles']")
 titles = [x.text for x in titles_element]
 print(titles[0])
 print('\n')
